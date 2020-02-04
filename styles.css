@@ -121,7 +121,7 @@ hr {
 }
 .intro-left-mobile,
 .intro-right-mobile {
-  display: block;
+  display: none;
 }
 .intro-desktop {
   display: block;
