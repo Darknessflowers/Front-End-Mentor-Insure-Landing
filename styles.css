@@ -37,30 +37,34 @@ header .wrap {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 /** Navigation **/
-nav {
+.menu {
     float: right;
 }
-nav a, nav a:visited{
+.menu a, .menu a:visited{
   color: #828085;
 }
-nav a:hover,
-nav a:active {
+.menu a:hover,
+.menu a:active {
   color: hsl(256, 26%, 20%);
 
 }
-nav ul {
+.menu ul {
     margin: 0;
 }
-nav li {
+.menu li {
     display: inline-block;
 }
-nav li a, nav li a:visited {
+.menu a, .menu a:visited {
     padding: 10px 22px;
     text-decoration: none;
     text-transform: uppercase;
     display: inline-block;
+}
+#menu-btn {
+    display: none;
 }
 hr {
     border-color: #b1a3b4;
@@ -239,6 +243,78 @@ footer a:hover {
 }
 
 @media only screen and (max-width: 600px)  {
+  img.logo {
+      margin-bottom: 20px;
+      margin-left: 20px;
+  }
+  header {
+    padding-bottom: 0;
+  }
+.menu {
+  margin: 0;
+  background: #2b282f url(images/bg-pattern-mobile-nav.svg);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: contain;
+  padding: 0;
+  width: 100%;
+  flex-basis: 100%;
+  height: 0;
+  transition: height 0.2s;
+}
+ .menu a,
+ .menu a:visited {
+  display: block;
+  padding: 25px 22px;
+  color: #fff;
+}
+.menu li {
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}
+label.menu-icon {
+    margin-right: 20px;
+    margin-bottom: 14px;
+    cursor: pointer;
+}
+.navicon {
+  background: #333;
+  display: block;
+  height: 32px;
+  position: relative;
+  width: 32px;
+}
+.navicon:before {
+  background: url(images/icon-hamburger.svg);
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+.navicon:after {
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+.menu-btn:checked ~ .menu-icon .navicon:after {
+  background: url(images/icon-close.svg);
+}
+.menu-btn:checked ~ .menu {
+  height: calc(100vh - 70px);
+  overflow: hidden;
+  transition: height 0.2s;
+}
+  .nav-feature {
+    border-color: #ffffff;
+  }
+  .nav-feature a {
+    color: #fff;
+  }
   .intro-desktop {
     display: none;
   }
@@ -330,9 +406,6 @@ footer a:hover {
   .one-fourth {
     width: 100%;
     text-align: center;
-  }
-  header .wrap {
-    max-width: 90%;
   }
 
 }
